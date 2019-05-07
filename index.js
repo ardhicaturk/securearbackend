@@ -1,14 +1,24 @@
 const app = require('express')();
 const server = require('http').Server(app);
+// const server = require('https');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-var api_auth = require('./api/auth/auth')
+var api_auth = require('./api/auth/auth');
+var key = fs.readFileSync('keys/securearbackend.key');
+var cert = fs.readFileSync('keys/securearbackend.cert');
+var httpsOptions={
+    key: key,
+    cert: cert
+}
+// server.createServer(httpsOptions, app).listen(3000, () => {
+//     console.log('[https]Listening...');
+// })
 server.listen(3000, () => {
     console.log('[https]Listening...')
 })
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/auth', api_auth);
 app.get('/', (req, res) => {
     res.send('Hello HTTPS!');
