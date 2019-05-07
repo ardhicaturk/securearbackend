@@ -1,0 +1,30 @@
+{
+  "name": "securearbackend",
+  "version": "1.0.0",
+  "description": "Server side program for SecureAR Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/ardhicaturk3/securearbackend.git"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "Ardhi Catur K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ardhicaturk3/securearbackend/issues"
+  },
+  "homepage": "https://gitlab.com/ardhicaturk3/securearbackend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.6",
+    "nodemon": "^1.19.0"
+  }
+}
