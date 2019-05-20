@@ -1,9 +1,11 @@
 const app = require('express')();
 const server = require('http').Server(app);
 // const server = require('https');
+const io = require('socket.io')(server);
 const fs = require('fs');
 const bodyParser = require('body-parser');
 var api_auth = require('./api/auth/auth');
+var deviceControl = require('./api/device/deviceControl');
 var key = fs.readFileSync('keys/securearbackend.key');
 var cert = fs.readFileSync('keys/securearbackend.cert');
 var httpsOptions={
@@ -21,5 +23,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/auth', api_auth);
 app.get('/', (req, res) => {
-    res.send('Hello HTTPS!');
+    res.status(200);
+})
+
+io.on("connection", function(socket){
+    deviceControl.callback(socket);
 })
