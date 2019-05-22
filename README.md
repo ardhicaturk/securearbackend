@@ -32,7 +32,10 @@ node index.js
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
 | localhost:3000/api/auth/register | POST | {name, email, pin, noHp, noKtp} | {_status, message} |
-
+| header | header |
+| ------ | ------ |
+| cell | cell |
+| cell | cell | 
 - **Login**
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
