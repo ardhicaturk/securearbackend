@@ -29,24 +29,28 @@ node index.js
 ## Refference
 
 - **Register**
+
 | URL | Methode | Data Request | Callback |
-| ------ | ------ | ------ | ------ |
-| localhost:3000/api/auth/register | POST | {name, email, pin, noHp, noKtp} | {_status, message} |
+| --- | --- | --- | --- |
+| /api/auth/register | POST | {name, email, pin, noHp, noKtp} | {_status, message} |
 
 - **Login**
+
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
-| localhost:3000/api/auth/login | POST | {email, pin} | {_status, auth, message, token} |
+| /api/auth/login | POST | {email, pin} | {_status, auth, message, token} |
 
 - **Check token**
+
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
-| localhost:3000/api/auth/check | GET | {} | {_status, auth, token} |
+| /api/auth/check | GET | {} | {_status, auth, token} |
 
 - **Logout**
+
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
-| localhost:3000/api/auth/logout | POST | {} | {_status:false, auth:false, token:null} |
+| /api/auth/logout | POST | {} | {_status:false, auth:false, token:null} |
 
 - **Read user profile**
 - **Edit user profile**
