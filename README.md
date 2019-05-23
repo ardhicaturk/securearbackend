@@ -115,4 +115,5 @@ node index.js
 -- **Server Socket emit room**
 
 | room | data |
+| --- | --- |
 | control | {lock} |
