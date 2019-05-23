@@ -54,10 +54,65 @@ node index.js
 | ------ | ------ | ------ | ------ |
 | /api/auth/logout | POST | {} | {_status:false, auth:false, token:null} |
 
-- **Read user profile**
-- **Edit user profile**
-- **Add device**
-- **Edit device info**
-- **Read device info**
-- **Delete specified device**
-- **Send command Lock/Unlock**
+- ### User info
+-- **Read user profile**
+
+| URL | Methode | Data Request | Callback |
+| ------ | ------ | ------ | ------ |
+| /api/userinfo/readProfile | POST | {email} | {_status} |
+
+-- **Edit user profile**
+
+| URL | Methode | Data Request | Callback |
+| ------ | ------ | ------ | ------ |
+| /api/userinfo/editProfile | POST | {name, email, pin, noHp, noKtp} | {_status} |
+
+-- **Add device**
+
+| URL | Methode | Data Request | Callback |
+| ------ | ------ | ------ | ------ |
+| /api/userinfo/addMyDevice | POST | {email, HWID, deviceName} | {_status} |
+
+-- **Edit device info**
+
+| URL | Methode | Data Request | Callback |
+| ------ | ------ | ------ | ------ |
+| /api/userinfo/editMyDevice | POST | {email, HWID, deviceName} | {_status} |
+
+-- **Read device info**
+
+| URL | Methode | Data Request | Callback |
+| ------ | ------ | ------ | ------ |
+| /api/userinfo/readMyDevice | POST | {email} | {_status, devices:{HWID, deviceName}} |
+
+-- **Delete specified device**
+
+| URL | Methode | Data Request | Callback |
+| ------ | ------ | ------ | ------ |
+| /api/userinfo/deleteMyDevice | POST | {email, HWID} | {_status} |
+
+- ### Device Control
+-- **change parameter info of device**
+
+| URL | Methode | Data Request | Callback |
+| ------ | ------ | ------ | ------ |
+| /api/device/editDevice | POST | {socketid, pinLock, lockState, lastLock, lastOpen, [rfid], [fingercode]} | {_status} |
+
+-- **findDevice**
+
+| URL | Methode | Data Request | Callback |
+| ------ | ------ | ------ | ------ |
+| /api/device/findDevice | POST | {HWID} | {owner, socketid, pinLock, lockState, lastLock, lastOpen, [rfid], [fingercode]} |
+
+-- **Server Socket listener**
+
+| Listener | data |
+| --- | --- |
+| connect | {HWID} |
+| sync | {} |
+| lock | {HWID, state} |
+
+-- **Server Socket emit room**
+
+| room | data |
+| control | {lock} |
