@@ -9,7 +9,7 @@
 
 - Clone this git ,
 >>>
-git clone https://gitlab.com/ardhicaturk3/securearbackend.git
+git clone https://github.com/ardhicaturk/securearbackend.git
 >>>
 - Extract file into specified folder,
 - Run Terminal/Command-prompt,
