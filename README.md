@@ -28,25 +28,27 @@ node index.js
 
 ## Refference
 
-- **Register**
+- ### Authentification
+
+-- **Register**
 
 | URL | Methode | Data Request | Callback |
 | --- | --- | --- | --- |
 | /api/auth/register | POST | {name, email, pin, noHp, noKtp} | {_status, message} |
 
-- **Login**
+-- **Login**
 
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
 | /api/auth/login | POST | {email, pin} | {_status, auth, message, token} |
 
-- **Check token**
+-- **Check token**
 
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
 | /api/auth/check | GET | {} | {_status, auth, token} |
 
-- **Logout**
+-- **Logout**
 
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
