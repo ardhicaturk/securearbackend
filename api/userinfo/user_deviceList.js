@@ -3,8 +3,8 @@ const Device = require("./../device/deviceModel")
 module.exports = {
     readMyDevices = function(email){
         User.findOne({email: email}, (err, data) => {
-            if (err) return res.status(500).send({_status:false, message: "Error: Read data device" })
-            res.status(200).send(data.devices);
+            if (err) return false;
+            return data.devices;
         })
     },
     addMyDevice = function(data){
@@ -14,10 +14,10 @@ module.exports = {
                 var addDevice = {HWID: data.HWID, name:data.deviceName};
                 user.devices.push(addDevice);
                 user.save().then(()=>{
-                    res.status(200).send({_status: true, message: "Add device success"});
+                    return true;
                 });
             } else {
-                res.status(200).send({_status:false, message: 'Error: Adding device, because device has been exist' });
+                return false;
             }
         })
     },

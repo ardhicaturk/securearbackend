@@ -1,4 +1,14 @@
 const deviceModel = require('./deviceModel');
+function lockDevice(HWID, state){
+    deviceModel.findOne({HWID: HWID}, (err, user) => {
+        if(err) console.log("[lockdevice] Device unknown");
+        if(state) user.lastLock = new Date();
+        if(!state) user.lastOpen = new Date();
+        user.lockState = state;
+        user.save();
+        socket.to(user.socketid).emit('control', "{lock:"+String(state)+"}");
+    })
+}
 module.exports = {
     callback: function(socket){
         socket.on('connect', function(data){
@@ -10,15 +20,8 @@ module.exports = {
         socket.on('sync', function(data){
             
         })
-    },
-    lockDevice: function(HWID, state, io){
-        deviceModel.findOne({HWID: HWID}, (err, user) => {
-            if(err) console.log("[lockdevice] Device unknown");
-            if(state) user.lastLock = new Date();
-            if(!state) user.lastOpen = new Date();
-            user.lockState = state;
-            user.save();
-            io.to(user.socketid).emit("{lock:"+String(state)+"}");
+        socket.on('lock', function(data){
+            lockDevice(data.HWID, data.state)
         })
     },
     editDevice: function(HWID, data){
