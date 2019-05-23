@@ -21,7 +21,7 @@ node index.js
 
 ## Default config
 
-- Using port **:3000** for html request,
+- Using port **:3000** for http request,
 - Using MongoDB with mongoosejs, you can edit **./api/auth/db.js** as your own mongoDB host.
 - You can edit this token secret key inside of **./api/auth/config.js**,
 - Using socket.io to comunicated between device and server, ready on port **:3000**
