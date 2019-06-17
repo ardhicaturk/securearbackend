@@ -65,7 +65,7 @@ node index.js
 
 | URL | Methode | Data Request | Callback |
 | ------ | ------ | ------ | ------ |
-| /api/userinfo/editProfile | POST | {name, email, pin, noHp, noKtp} | {_status} |
+| /api/userinfo/editProfile | POST | {_id, pin, noHP, name, photoPath} | {_status} |
 
 -- **Add device**
 
