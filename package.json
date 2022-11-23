@@ -28,6 +28,6 @@
     "mysql2": "^1.6.5",
     "nodemon": "^1.19.0",
     "sequelize": "^5.8.6",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.5.0"
   }
 }
